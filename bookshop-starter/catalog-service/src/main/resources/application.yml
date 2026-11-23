@@ -1,0 +1,25 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: catalog-service
+  datasource:
+    url: jdbc:postgresql://localhost:5432/catalogdb
+    username: bookshop
+    password: bookshop
+  jpa:
+    open-in-view: false
+    hibernate:
+      # TP0 : schéma généré par Hibernate. TP8 : remplacé par Flyway (ddl-auto: none).
+      ddl-auto: update
+    show-sql: false
+
+app:
+  welcome-message: "Bienvenue (fichier interne)"
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,env

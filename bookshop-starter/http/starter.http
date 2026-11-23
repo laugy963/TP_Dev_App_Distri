@@ -1,0 +1,40 @@
+### TP0 - Requêtes de prise en main (IntelliJ HTTP Client / VS Code REST Client)
+
+### Créer un livre
+POST http://localhost:8081/api/books
+Content-Type: application/json
+
+{
+  "isbn": "9780132350884",
+  "title": "Clean Code",
+  "author": "Robert C. Martin",
+  "price": 15.00
+}
+
+### Lister les livres
+GET http://localhost:8081/api/books
+
+### Détail d'un livre
+GET http://localhost:8081/api/books/1
+
+### Message d'accueil (TP1)
+GET http://localhost:8081/api/welcome
+
+### Passer une commande (appel synchrone order -> catalog)
+POST http://localhost:8082/api/orders
+Content-Type: application/json
+
+{
+  "bookId": 1,
+  "quantity": 2,
+  "customerId": "client-42"
+}
+
+### Lire une commande
+GET http://localhost:8082/api/orders/1
+
+### Commande sur un livre inconnu -> 422
+POST http://localhost:8082/api/orders
+Content-Type: application/json
+
+{ "bookId": 999, "quantity": 1, "customerId": "client-42" }
