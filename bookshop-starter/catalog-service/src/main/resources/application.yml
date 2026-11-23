@@ -1,9 +1,9 @@
-server:
-  port: 8081
-
 spring:
   application:
     name: catalog-service
+  config:
+    # Rang 4 (configuration externe) : optionnel tant que le Config Server n'existe pas (TP2)
+    import: "optional:configserver:http://localhost:8888"
   datasource:
     url: jdbc:postgresql://localhost:5432/catalogdb
     username: bookshop
@@ -11,15 +11,19 @@ spring:
   jpa:
     open-in-view: false
     hibernate:
-      # TP0 : schéma généré par Hibernate. TP8 : remplacé par Flyway (ddl-auto: none).
-      ddl-auto: update
-    show-sql: false
+      # validate : Hibernate vérifie le schéma sans le modifier (Flyway le gérera au TP8)
+      ddl-auto: validate
+
+server:
+  port: 8081
 
 app:
   welcome-message: "Bienvenue (fichier interne)"
+  features:
+    discount-enabled: false
 
 management:
   endpoints:
     web:
       exposure:
-        include: health,info,env
+        include: health,info,env,conditions,refresh

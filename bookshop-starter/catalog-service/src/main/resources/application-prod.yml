@@ -1,0 +1,6 @@
+app:
+  welcome-message: "Bienvenue (profil prod)"
+
+logging:
+  level:
+    root: WARN

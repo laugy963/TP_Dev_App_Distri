@@ -18,7 +18,9 @@ import java.math.BigDecimal;
 import static org.assertj.core.api.Assertions.assertThat;
 
 /** Test d'intégration avec un vrai PostgreSQL (Testcontainers). Ignoré si Docker est absent. */
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+// ddl-auto=create-drop : application.yml est en "validate" (TP1) et la base Testcontainers est vide (Flyway au TP8)
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT,
+        properties = "spring.jpa.hibernate.ddl-auto=create-drop")
 @Testcontainers(disabledWithoutDocker = true)
 class BookApiIntegrationTest {
 
@@ -48,7 +50,6 @@ class BookApiIntegrationTest {
 
     @Test
     void welcome_message_comes_from_application_yml() {
-        ResponseEntity<JsonNode> response = rest.getForEntity("/api/welcome", JsonNode.class);
-        assertThat(response.getBody().get("message").asText()).isEqualTo("Bienvenue (fichier interne)");
+        assertThat(rest.getForObject("/api/welcome", String.class)).isEqualTo("Bienvenue (fichier interne)");
     }
 }
