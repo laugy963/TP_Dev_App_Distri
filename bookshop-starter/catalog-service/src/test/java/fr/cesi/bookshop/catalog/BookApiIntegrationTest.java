@@ -20,11 +20,13 @@ import static org.assertj.core.api.Assertions.assertThat;
 /** Test d'intégration avec un vrai PostgreSQL (Testcontainers). Ignoré si Docker est absent. */
 // ddl-auto=create-drop : application.yml est en "validate" (TP1) et la base Testcontainers est vide (Flyway au TP8)
 // config/bus désactivés (TP2) : le test ne doit dépendre ni d'un config-server ni de Kafka lancés sur le poste
+// eureka désactivé (TP3) : le test ne doit pas dépendre du discovery-server
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT,
         properties = {
                 "spring.jpa.hibernate.ddl-auto=create-drop",
                 "spring.cloud.config.enabled=false",
-                "spring.cloud.bus.enabled=false"
+                "spring.cloud.bus.enabled=false",
+                "eureka.client.enabled=false"
         })
 @Testcontainers(disabledWithoutDocker = true)
 class BookApiIntegrationTest {

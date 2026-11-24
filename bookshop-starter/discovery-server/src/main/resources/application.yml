@@ -1,0 +1,16 @@
+server:
+  port: 8761
+
+spring:
+  application:
+    name: discovery-server
+
+eureka:
+  client:
+    # L'annuaire ne s'inscrit pas lui-même et ne télécharge pas de registre
+    register-with-eureka: false
+    fetch-registry: false
+  server:
+    # Confort de TP : les instances arrêtées disparaissent vite (à garder activé en production)
+    enable-self-preservation: false
+    eviction-interval-timer-in-ms: 5000

@@ -27,3 +27,9 @@ management:
     web:
       exposure:
         include: health,info,env,conditions,refresh
+
+# TP3 : adresse de l'annuaire Eureka (discovery-server)
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka

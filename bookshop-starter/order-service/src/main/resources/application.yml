@@ -15,11 +15,17 @@ spring:
 
 app:
   catalog:
-    # URL en dur : remplacée par la découverte de services au TP3
-    url: http://localhost:8081
+    # TP3 : nom logique du service, traduit par l'annuaire Eureka (plus d'adresse en dur)
+    url: http://catalog-service
 
 management:
   endpoints:
     web:
       exposure:
         include: health,info
+
+# TP3 : adresse de l'annuaire Eureka (discovery-server)
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
