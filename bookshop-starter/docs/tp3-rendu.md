@@ -2,6 +2,8 @@
 
 INFAL112 – Projet bookshop-starter
 
+Schémas explicatifs : [schemas/tp3-eureka.drawio](schemas/tp3-eureka.drawio), avec les onglets [architecture Eureka](schemas/tp3-1-architecture-eureka.png) et [round robin et perte d'instance](schemas/tp3-2-round-robin-perte-instance.png).
+
 | Élément | Port | Rôle |
 |---|---|---|
 | `discovery-server` (nouveau module) | 8761 | Annuaire Eureka et son tableau de bord |

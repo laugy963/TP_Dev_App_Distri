@@ -2,6 +2,8 @@
 
 INFAL112 – Projet bookshop-starter
 
+Schémas explicatifs : [schemas/tp2-config-server-bus.drawio](schemas/tp2-config-server-bus.drawio), avec les onglets [architecture](schemas/tp2-1-architecture-config-server.png) et [rechargement à chaud](schemas/tp2-2-refresh-a-chaud.png).
+
 ## 1. Le config-server sert les deux sources de configuration
 
 `curl -s http://localhost:8888/catalog-service/default | jq`

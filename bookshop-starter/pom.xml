@@ -23,8 +23,10 @@
         <module>order-service</module>
         <module>config-server</module>
         <module>discovery-server</module>
-        <!-- Modules ajoutés au fil des TP : gateway (TP4),
-             bff-web (TP4), catalog-query-service (TP9), payment-service (TP10), psp-function (TP12) -->
+        <module>gateway</module>
+        <module>bff-web</module>
+        <!-- Modules ajoutés au fil des TP : catalog-query-service (TP9),
+             payment-service (TP10), psp-function (TP12) -->
     </modules>
 
     <properties>
