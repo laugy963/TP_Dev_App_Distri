@@ -2,7 +2,7 @@ spring:
   application:
     name: catalog-service
   config:
-    # Rang 4 (configuration externe) : optionnel tant que le Config Server n'existe pas (TP2)
+    # Rang 4 (configuration externe, TP2) : "optional:" = démarre quand même si le config-server est injoignable
     import: "optional:configserver:http://localhost:8888"
   datasource:
     url: jdbc:postgresql://localhost:5432/catalogdb

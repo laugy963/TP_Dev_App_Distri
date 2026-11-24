@@ -1,0 +1,2 @@
+app:
+  shared-message: "Configuration commune servie par le config-server"
